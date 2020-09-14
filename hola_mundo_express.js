@@ -1,8 +1,11 @@
 const express=require('express'); 
 
 const app=express();
+//crearcion del puerto local//
+//const port =3000;
 
-const port =3000;
+//crearcion del puerto para heroku//
+const port =process.env.PORT || 3000;
 
 //usando el motor de plantilla EJS//
 app.set('view engine','ejs');
