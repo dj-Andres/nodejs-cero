@@ -1,37 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Store|Detalle de producto </title>
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+<% -include('template/cabecera') %>
 <body>
-    <div class="header">
-        <div class="container">
-            <div class="navbar">
-                <div class="logo">
-                        <img src="img/logo.png" alt="" width="125px">
-                </div>
-                <nav>
-                    <ul id="menuitems">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="productos.html">Productos</a></li>
-                        <li><a href="detalles_productos.html">Detalle Productos</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Contacto</a></li>
-                        <li><a href="">Cuenta</a></li>
-                    </ul>
-                </nav>
-                <img src="img/cart.png" alt="" width="30px" height="30px">
-                <img src="img/menu.png" alt="" srcset="" class="menu-icono" onclick="menutoggle()">
-            </div>
-        </div>
-    </div>
-    <!---single producto---->    
+    <%- include('template/menu') %>
+
     <div class="small-container detalle-productos">
         <div class="row">
             <div class="col-2">
@@ -74,6 +44,31 @@
         <div class="row row-2">
             <h2>Related Products</h2>
             <p>Ver más</p>
+        </div>
+    </div>
+    <div class="small-container">
+        <div class="row row-2">
+            <table class="table table-light">
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Cedula</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(arrayPersonas.lenght >0) { %>
+                        <% arrayPersonas.forEach(persona => { %>
+                            <tr>
+                                <td><%persona.id%></td>
+                                <td><%persona.cedula%></td>
+                                <td><%persona.nombre%></td>
+                            </tr> 
+                        <% }) %>    
+                    <% } %>
+                </tbody>
+            </table>
+                
         </div>
     </div>
     <!---productos-->
@@ -129,45 +124,8 @@
             </div>
         </div>
     </div>  
-    <!---fotter-->
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col-1">
-                    <h3>Descargar App</h3>
-                    <p>Descarga para Android Ios</p>
-                    <div class="app-logo">
-                        <img src="img/play-store.png" alt="" srcset="">
-                        <img src="img/app-store.png" alt="" srcset="">
-                    </div>
-                </div>
-                <div class="footer-col-2">
-                    <img src="img/logo-white.png" alt="" srcset="">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, explicabo!</p>
-                </div>
-                <div class="footer-col-3">
-                    <h3>Uso en los enlaces</h3>
-                    <ul>
-                        <li>Cupones</li>
-                        <li>Cupones</li>
-                        <li>Cupones</li>
-                        <li>Cupones</li>
-                    </ul>
-                </div>
-                <div class="footer-col-4">
-                    <h3>Redes Sociales</h3>
-                    <ul>
-                        <li>Facebook</li>
-                        <li>Twitter</li>
-                        <li>Instagram</li>
-                        <li>YouTube</li>
-                    </ul>
-                </div>
-            </div>
-            <hr>
-            <p class="copy">Copyright 2020 Pecho-Peludo</p>
-        </div>
-    </div>
-    <script src="js/scripts.js"></script>
+
+    <%-include ('template/footer') %>
+    <script src="./js/scripts.js"></script>
 </body>
 </html>

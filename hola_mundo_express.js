@@ -12,19 +12,24 @@ app.set('view engine','ejs');
 app.set('views',__dirname+"/views")
 //mostrar la pagina estatica al inicio de la peticion //
  app.use(express.static(__dirname+"/public"));
-//rutas//
-app.get('/',(req,res)=>{
+//forma de usar las rutas sin uso de Router de express//
+//app.get('/',(req,res)=>{
     //res.send('Mi respuesta con express v2');
     //mostramos la pagina de ejs con render
-    res.render("index");
-})
-app.get('/servicios',(req,res)=>{
+  //  res.render("index");
+//})
+//app.get('/servicios',(req,res)=>{
     //res.send('Estas en la pagina servicios');
-    res.render("servicio",{tituloservicio:"Servicos .NET"})
-})
-app.get('/productos',(req,res)=>{
-    res.status(200).render("productos");
-})
+  //  res.render("servicio",{tituloservicio:"Servicos .NET"})
+//})
+//app.get('/productos',(req,res)=>{
+  //  res.status(200).render("productos");
+//})
+
+//1. usando el modulo de Router de express manera correcta//
+//2. usando el archivo de rutas//
+app.use('/',require('./router/rutasWeb'));
+app.use('/personas',require('./router/personas'));
 //configuracion de archivos estaticos//
 //app.use(express.static(__dirname +"/public"));   
 //uso de middleware//

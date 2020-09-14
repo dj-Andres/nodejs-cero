@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node hola_mundo_express"
+    "start": "node hola_mundo_express",
+    "dev":"nodemon hola_mundo_express"
   },
   "keywords": [],
   "author": "",
