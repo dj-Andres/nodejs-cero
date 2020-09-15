@@ -7,6 +7,18 @@ const app=express();
 //crearcion del puerto para heroku//
 const port =process.env.PORT || 3000;
 
+//conexion con la bd//
+const mongoose=require('mongoose');
+//credenciales de la bd//
+const user='Andres-JP';
+const password='619-Andres';
+const bd='practica';
+const uri=`mongodb+srv://${user}:${password}@cluster0.agppc.mongodb.net/${bd}?retryWrites=true&w=majority`;
+//sentencia de para conectar con la bd//
+mongoose.connect(uri,{useNewUrlParser:true,useUnifiedTopology:true})
+  .then(()=> console.log('conectado a la base de datos'))
+  .catch(e =>console.log(e))
+
 //usando el motor de plantilla EJS//
 app.set('view engine','ejs');
 app.set('views',__dirname+"/views")

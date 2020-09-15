@@ -53,16 +53,16 @@
                     <tr>
                         <th>Codigo</th>
                         <th>Cedula</th>
-                        <th>Nombre</th>
+                        <th>Nombres</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% if(arrayPersonas.lenght >0) { %>
-                        <% arrayPersonas.forEach(persona => { %>
+                    <% if(arregloMascotas.lenght >0) { %>
+                        <% arregloMascotas.forEach(persona => { %>
                             <tr>
                                 <td><%persona.id%></td>
-                                <td><%persona.cedula%></td>
                                 <td><%persona.nombre%></td>
+                                <td><%persona.Cedula%></td>
                             </tr> 
                         <% }) %>    
                     <% } %>

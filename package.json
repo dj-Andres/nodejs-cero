@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node hola_mundo_express",
-    "dev":"nodemon hola_mundo_express"
+    "dev": "nodemon hola_mundo_express"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,8 @@
   "dependencies": {
     "cowsay": "^1.4.0",
     "ejs": "^3.1.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.10.5",
+    "mongose": "0.0.2-security"
   }
 }
