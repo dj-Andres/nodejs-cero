@@ -1,6 +1,10 @@
 const express=require('express'); 
 
 const app=express();
+
+//uso de la variable de entorno//
+
+require('dotenv').config()
 //crearcion del puerto local//
 //const port =3000;
 
@@ -10,10 +14,8 @@ const port =process.env.PORT || 3000;
 //conexion con la bd//
 const mongoose=require('mongoose');
 //credenciales de la bd//
-const user='Andres-JP';
-const password='619-Andres';
-const bd='practica';
-const uri=`mongodb+srv://${user}:${password}@cluster0.agppc.mongodb.net/${bd}?retryWrites=true&w=majority`;
+//usaomos las credenciales guardadas en las archivo de las variables de entorno
+const uri=`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.agppc.mongodb.net/${process.env.BD}?retryWrites=true&w=majority`;
 //sentencia de para conectar con la bd//
 mongoose.connect(uri,{useNewUrlParser:true,useUnifiedTopology:true})
   .then(()=> console.log('conectado a la base de datos'))
