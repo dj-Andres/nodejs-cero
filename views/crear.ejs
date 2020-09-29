@@ -1,0 +1,16 @@
+<% -include('template/cabecera') %>
+<body>
+    <%- include('template/menu') %>
+        <div class="container">
+            <h1 class="text-title">Crear personas
+                <form action="/personas" method="POST">
+                    <input type="text" class="form-group" placeholder="Agregar la cedula" name="cedula">
+                    <input type="text" class="form-group" placeholder="Agregar la Nombre" name="nombre">
+                    <input type="submit" value="Guardar">
+                </form>
+            </h1>
+        </div>
+    <%-include ('template/footer') %>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

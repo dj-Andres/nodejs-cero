@@ -1,0 +1,34 @@
+<% -include('template/cabecera') %>
+<body>
+    <%- include('template/menu') %>
+        <div class="container">
+            <h1 class="text-title">Detalle de Información</h1>
+            <% if(error)  { %>
+                <p>
+                    <% mensaje %>
+                </p>
+                <a href="/personas">Regresar</a>
+            <% } %>
+            <% if (!error) { %>
+                <table class="table table-light">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Cedula</th>
+                            <th>Nombres</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                                <tr>
+                                    <td><% persona.id %></td>
+                                    <td><% persona.nombre %></td>
+                                    <td><% persona.cedula %></td>
+                                </tr> 
+                    </tbody>
+                </table> 
+            <% } %>
+        </div>
+    <%-include ('template/footer') %>
+    <script src="./js/scripts.js"></script>
+</body>
+</html>

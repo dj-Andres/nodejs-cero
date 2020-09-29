@@ -1,9 +1,11 @@
 const express=require('express'); 
 
 const app=express();
-
+const bodyParser=require('body-parser');
+//usomos el modulo de bodyparser//
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json());
 //uso de la variable de entorno//
-
 require('dotenv').config()
 //crearcion del puerto local//
 //const port =3000;

@@ -1,4 +1,4 @@
-//usamos el modulo de moogose//
+ //usamos el modulo de moogose//
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 

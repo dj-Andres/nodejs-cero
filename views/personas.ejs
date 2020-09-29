@@ -48,6 +48,7 @@
     </div>
     <div class="small-container">
         <div class="row row-2">
+            <a href="/personas/crear">Crear Personas</a>
             <table class="table table-light">
                 <thead>
                     <tr>
@@ -57,18 +58,18 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% if(arregloMascotas.lenght >0) { %>
+                    <% if(arregloMascotas.lenght > 0) { %>
                         <% arregloMascotas.forEach(persona => { %>
                             <tr>
-                                <td><%persona.id%></td>
-                                <td><%persona.nombre%></td>
-                                <td><%persona.Cedula%></td>
+                                <td><% persona.id %></td>
+                                <td><% persona.nombre %></td>
+                                <td><% persona.cedula %></td>
                             </tr> 
                         <% }) %>    
                     <% } %>
                 </tbody>
             </table>
-                
+            
         </div>
     </div>
     <!---productos-->
