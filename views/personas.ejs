@@ -61,9 +61,12 @@
                     <% if(arregloMascotas.lenght > 0) { %>
                         <% arregloMascotas.forEach(persona => { %>
                             <tr>
-                                <td><% persona.id %></td>
-                                <td><% persona.nombre %></td>
-                                <td><% persona.cedula %></td>
+                                <td><%= persona.id %></td>
+                                <td><%= persona.nombre %></td>
+                                <td><%= persona.cedula %></td>
+                                <td>
+                                    <a href="/personas/<%= persona.id %>">Editar</a>
+                                </td>
                             </tr> 
                         <% }) %>    
                     <% } %>

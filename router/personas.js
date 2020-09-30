@@ -54,4 +54,25 @@ router.get('/:id',async(req,res)=>{
         })
     }
 })
+router.delete('/:id',async(req,res)=>{
+    const id=req.params.id
+    
+    try {
+        const PersonaBd=await Persona.findByIdAndDelete({_id:id})
+        if(PersonaBd){
+            res.json({
+                estado:true,
+                mensaje:'eliminado'
+            })
+        }else{
+            res.json({
+                estado:false,
+                mensaje:'fallo al eliminar'
+            })
+        }
+    } catch (error) {
+        console.log(error)
+    }
+
+})
 module.exports=router;

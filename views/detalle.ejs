@@ -19,16 +19,42 @@
                         </tr>
                     </thead>
                     <tbody>
-                                <tr>
-                                    <td><% persona.id %></td>
-                                    <td><% persona.nombre %></td>
-                                    <td><% persona.cedula %></td>
-                                </tr> 
+                        <tr>
+                            <td><%= Persona.id %></td>
+                            <td><%= Persona.nombre %></td>
+                            <td><%= Persona.cedula %></td>
+                            <td>
+                                <button id="btnEliminar" data-id="<%= Persona.id %>">Eliminar</button>
+                            </td>
+                        </tr> 
                     </tbody>
                 </table> 
             <% } %>
         </div>
     <%-include ('template/footer') %>
     <script src="./js/scripts.js"></script>
+    <script>
+        const eliminar=document.querySelector('#btnEliminar');
+        eliminar.addEventListener('click',()=>{
+            //console.log('me diste click')
+            const id=eliminar.dataset.id
+            //console.log('id',id)
+            try {
+                const data = await fetch(`/personas/${id}`, {
+                    method:'delete'
+                })
+                const res = await data.json()
+                //console.log(res)
+                if (res.estado) {
+                    window.location.href='/personas'
+                }else{
+                    console.log(error)
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        })
+    </script>
 </body>
 </html>
