@@ -75,4 +75,24 @@ router.delete('/:id',async(req,res)=>{
     }
 
 })
+router.put('/:id' ,async(req,res)=>{
+    const id=req.body.id;
+    const body=req.body;
+    try {
+        const PersonaBd= await Persona.findByIdAndUpdate(id,body, {useFindAndModify:false})
+        console.log(Persona);
+
+        res.json({
+            estado:true,
+            mensaje:'editado'
+        })
+    } catch (error) {
+        console.log(error)
+
+        res.json({
+            estado:false,
+            mensaje:'No se pudo editar al usuario'
+        })
+    }
+})
 module.exports=router;

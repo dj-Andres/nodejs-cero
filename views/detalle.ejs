@@ -10,25 +10,14 @@
                 <a href="/personas">Regresar</a>
             <% } %>
             <% if (!error) { %>
-                <table class="table table-light">
-                    <thead>
-                        <tr>
-                            <th>Codigo</th>
-                            <th>Cedula</th>
-                            <th>Nombres</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><%= Persona.id %></td>
-                            <td><%= Persona.nombre %></td>
-                            <td><%= Persona.cedula %></td>
-                            <td>
-                                <button id="btnEliminar" data-id="<%= Persona.id %>">Eliminar</button>
-                            </td>
-                        </tr> 
-                    </tbody>
-                </table> 
+                <form id="formEditar" data-id="<%= Persona.id %>">
+                    <input type="text" name="cedula" value="<%= Persona.cedula %>" id="cedula-cli">
+                    <input type="text" name="nombre" value="<%= Persona.nombre %>" id="nombre-cli">
+                    <button type="submit">Editar</button>
+                </form>
+
+                <button id="btnEliminar" data-id="<%= Persona.id %>">Eliminar</button>
+
             <% } %>
         </div>
     <%-include ('template/footer') %>
@@ -51,6 +40,38 @@
                     console.log(error)
                 }
 
+            } catch (error) {
+                console.log(error)
+            }
+        })
+
+        const formulario=document.querySelector('#formEditar');
+        formulario.addEventListener('submit', async (e)=>{
+            e.preventDefault();
+            //por el name//
+            const cedula =formulario.elements['cedula'].value
+            const nombre=document.querySelector('#nombre-cli').value
+            const id=formulario.dataset.id
+
+            try {
+                const data = await fetch(`/personas/${id}`,{
+                    method:'put',
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    //body:{
+                      //  cedula:cedula,
+                       // nombre:nombre
+                    //}
+                    body:JSON.stringify({cedula,nombre})
+                })
+                const res=await data.json()
+
+                if(res.estado){
+                    window.location.href='/personas'            
+                }else{
+                    console.log(res)
+                }
             } catch (error) {
                 console.log(error)
             }
